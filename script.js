@@ -58,7 +58,6 @@ function clearDisplay() {
 }
 
 function backSpace() {
-  console.log("backspace");
   if (result != 0) {
     result = result.toString();
     result = result.substring(0, result.length - 1);
@@ -83,14 +82,16 @@ function equal() {
       result = Number(buffer) - Number(result);
       break;
     case "×":
-      result = result * buffer;
+      result = Number(result) * Number(buffer);
       break;
     case "÷":
       result = Number(buffer) / Number(result);
       break;
-      default: clearDisplay();
+    default:
+      return;
+      // clearDisplay();
   }
-  operation = '';
+  operation = "";
   buffer = 0;
   displayResult();
 }

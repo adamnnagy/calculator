@@ -5,6 +5,15 @@ body {
     font-size: 20px;
 }
 
+h1 {
+   display: flex;
+   justify-content: center;
+   color: black;
+}
+
+p {
+    margin-right: 1em;
+}
 button {
     border: none;
     font: inherit;
