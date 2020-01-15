@@ -26,10 +26,10 @@ button {
 
 /* screen */
 .row:first-child {
-    display: flex;
     justify-content: flex-end;
     align-content: center;
     height: 4rem;
+    
 }
 
 .calc-button:last-child {
