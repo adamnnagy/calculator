@@ -22,6 +22,10 @@ button {
     margin-bottom: 0.5%;
 }
 
+.result {
+
+}
+
 .calculator-container {
     background-color: black;
     width: 400px;
@@ -31,13 +35,13 @@ button {
 .row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 /* screen */
 .row:first-child {
     justify-content: flex-end;
-    align-content: center;
-    height: 4rem;
+    height: 5rem;
     
 }
 

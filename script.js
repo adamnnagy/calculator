@@ -69,7 +69,7 @@ function changeInput() {
   if (buffer == 0) {
     buffer = result;
     result = 0;
-    displayResult();
+    // displayResult();
   }
 }
 
@@ -89,7 +89,6 @@ function equal() {
       break;
     default:
       return;
-      // clearDisplay();
   }
   operation = "";
   buffer = 0;
