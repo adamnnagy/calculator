@@ -25,6 +25,10 @@ button {
 
 .history {
     font-size: small;
+    height: 1rem;
+}
+.result {
+    height: 1rem;
 }
 
 .calculator-container {
@@ -42,9 +46,9 @@ button {
 /* screen */
 .row:first-child {
     flex-direction: column;
-    /* justify-content: space-between; */
+    /* justify-content: ; */
 	align-items: flex-end;
-	height: fit-content;
+	/* height: 1rem; */
 }
 
 .calc-button:last-child {
