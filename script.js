@@ -24,17 +24,26 @@ function handleNumbers(num) {
 	}
 }
 
-function handleFloatingPoint () {
-    if (num || result) {
+function handleFloatingPoint() {
+	if (result.toString().match(/\./)) return;
 
-    }
+	if (!result) {
+		result = "0.";
+		displayResult();
+
+		return;
+	}
+	result += ".";
+	displayResult();
+
+	return;
 }
 
 function displayResult() {
-	if (result != 0) {
-		document.querySelector(".result").innerHTML = result;
+	if (result !== 0) {
+		document.querySelector(".result").textContent = result;
 	} else {
-		document.querySelector(".result").innerHTML = 0;
+		document.querySelector(".result").textContent = 0;
 	}
 }
 
@@ -54,6 +63,7 @@ function determineOperation(operator) {
 			break;
 		case ".":
 			handleFloatingPoint();
+			break;
 		default:
 			changeInput();
 			operation = operator;
