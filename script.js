@@ -38,19 +38,21 @@ function handleFloatingPoint() {
 
 	if (!result) {
 		result = "0.";
-		displayResult();
-		return;
+	} else {
+		result += ".";
 	}
-	result += ".";
 	displayResult();
 	return;
 }
 
 function displayResult() {
+	const resultContainer = document.querySelector(".result");
 	if (result != 0) {
-		document.querySelector(".result").textContent = result;
+		resultContainer.textContent = result;
+	} else if (result === "0.") {
+		resultContainer.textContent = result;
 	} else {
-		document.querySelector(".result").textContent = 0;
+		resultContainer.textContent = 0;
 	}
 }
 
