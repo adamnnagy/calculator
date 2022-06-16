@@ -60,7 +60,11 @@ function displayResult() {
 
 function displayHistory(number1, number2, operation) {
 	const historyContainer = document.querySelector(".history");
-	historyContainer.textContent = `${number1} ${operation} ${number2} = ${result}`;
+	if (number2) {
+		historyContainer.textContent = `${number1} ${operation} ${number2} = ${result}`;
+	} else {
+		historyContainer.textContent = `${number1} ${operation} `;
+	}
 }
 
 function determineOperation(operator) {
@@ -94,8 +98,8 @@ function determineOperation(operator) {
 			break;
 		default:
 			if (!!operator.toString().match(/[\/\*\-\+\×\÷]/)) {
-				changeInput();
 				operation = operator;
+				changeInput();
 			}
 			break;
 	}
@@ -103,11 +107,10 @@ function determineOperation(operator) {
 
 function clearDisplay() {
 	result = 0;
-    document.querySelector('.history').textContent = ''
+	document.querySelector(".history").textContent = "";
 }
 
-function clearHistory() {
-}
+function clearHistory() {}
 
 function backSpace() {
 	if (result != 0) {
@@ -127,6 +130,7 @@ function changeInput() {
 		buffer = result;
 		result = 0;
 	}
+	displayHistory(buffer, "", operation);
 }
 
 function equal() {
