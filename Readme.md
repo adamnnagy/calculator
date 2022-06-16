@@ -2,7 +2,7 @@
 
 ## To Do
 [] Add Keyboard support
-[] add floating point support
+[x] add floating point support
 
 
 ### Floating point

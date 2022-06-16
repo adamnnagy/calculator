@@ -2,15 +2,24 @@ let result = 0;
 let buffer = 0;
 let operation = "";
 
-document
-	.querySelector(".calculator-container")
-	.addEventListener("click", function (event) {
-		if (Number(event.target.innerText)) {
-			handleNumbers(event.target.innerText);
-		} else {
-			determineOperation(event.target.innerText);
-		}
-	});
+const calculator = document.querySelector(".calculator-container");
+
+calculator.addEventListener("click", function (event) {
+	if (Number(event.target.innerText)) {
+		handleNumbers(event.target.innerText);
+	} else {
+		determineOperation(event.target.innerText);
+	}
+});
+
+document.body.addEventListener("keydown", function (event) {
+	console.log(event.key);
+	if (Number(event.key)) {
+		handleNumbers(event.key);
+	} else {
+		determineOperation(event.key);
+	}
+});
 
 function handleNumbers(num) {
 	if (num || result) {
@@ -38,7 +47,7 @@ function handleFloatingPoint() {
 }
 
 function displayResult() {
-	if (result !== 0) {
+	if (result != 0) {
 		document.querySelector(".result").textContent = result;
 	} else {
 		document.querySelector(".result").textContent = 0;
@@ -50,10 +59,22 @@ function determineOperation(operator) {
 		case "C":
 			clearDisplay();
 			break;
+		case "c":
+			clearDisplay();
+			break;
+		case "Delete":
+			clearDisplay();
+			break;
 		case "←":
 			backSpace();
 			break;
-		case "=":
+		case "Backspace":
+			backSpace();
+			break;
+		case "=" || "Enter":
+			equal();
+			break;
+		case "Enter":
 			equal();
 			break;
 		case "0":
@@ -63,8 +84,11 @@ function determineOperation(operator) {
 			handleFloatingPoint();
 			break;
 		default:
-			changeInput();
-			operation = operator;
+			if (!!operator.toString().match(/[\/\*\-\+\×\÷]/)) {
+				changeInput();
+				operation = operator;
+			}
+			break;
 	}
 }
 
@@ -76,16 +100,22 @@ function clearDisplay() {
 function backSpace() {
 	if (result != 0) {
 		result = result.toString();
-		result = result.substring(0, result.length - 1);
-		displayResult();
+		result = result.substring(0, result.length - 1) || 0;
 	}
+	if (result === "0.") {
+		result = 0;
+	}
+	if (result === "-") {
+		result = 0;
+	}
+	displayResult();
 }
 
 function changeInput() {
 	if (buffer == 0) {
 		buffer = result;
 		result = 0;
-		// displayResult();
+		displayResult();
 	}
 }
 
@@ -101,6 +131,12 @@ function equal() {
 			result = Number(result) * Number(buffer);
 			break;
 		case "÷":
+			result = Number(buffer) / Number(result);
+			break;
+		case "*":
+			result = Number(result) * Number(buffer);
+			break;
+		case "/":
 			result = Number(buffer) / Number(result);
 			break;
 		default:
