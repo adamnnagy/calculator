@@ -13,7 +13,7 @@ h1 {
 }
 
 p {
-	margin-right: 1em;
+	margin-right: 1rem;
 }
 button {
 	border: none;
@@ -23,7 +23,8 @@ button {
 	margin-bottom: 0.5%;
 }
 
-.result {
+.history {
+    font-size: small;
 }
 
 .calculator-container {
@@ -40,8 +41,10 @@ button {
 
 /* screen */
 .row:first-child {
-	justify-content: flex-end;
-	height: 5rem;
+    flex-direction: column;
+    /* justify-content: space-between; */
+	align-items: flex-end;
+	height: 6rem;
 }
 
 .calc-button:last-child {

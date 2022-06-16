@@ -10,18 +10,18 @@ calculator.addEventListener("click", function (event) {
 	} else {
 		determineOperation(event.target.innerText);
 	}
-    displayResult();
+	displayResult();
 });
 
 document.body.addEventListener("keydown", function (event) {
 	console.log(event.key);
-    event.preventDefault();
+	event.preventDefault();
 	if (Number(event.key)) {
 		handleNumbers(event.key);
 	} else {
 		determineOperation(event.key);
 	}
-    displayResult();
+	displayResult();
 });
 
 function handleNumbers(num) {
@@ -32,7 +32,6 @@ function handleNumbers(num) {
 		result = result.toString();
 		num = num.toString();
 		result += num;
-		
 	}
 }
 
@@ -48,15 +47,20 @@ function handleFloatingPoint() {
 }
 
 function displayResult() {
-    const resultContainer = document.querySelector(".result");
+	const resultContainer = document.querySelector(".result");
 
-    if (result != 0) {
+	if (result != 0) {
 		resultContainer.textContent = result;
 	} else if (result === "0.") {
 		resultContainer.textContent = result;
 	} else {
 		resultContainer.textContent = 0;
 	}
+}
+
+function displayHistory(number1, number2, operation) {
+	const historyContainer = document.querySelector(".history");
+	historyContainer.textContent = `${number1} ${operation} ${number2} = ${result}`;
 }
 
 function determineOperation(operator) {
@@ -99,6 +103,10 @@ function determineOperation(operator) {
 
 function clearDisplay() {
 	result = 0;
+    document.querySelector('.history').textContent = ''
+}
+
+function clearHistory() {
 }
 
 function backSpace() {
@@ -122,28 +130,31 @@ function changeInput() {
 }
 
 function equal() {
+	const number1 = Number(result);
+	const number2 = Number(buffer);
 	switch (operation) {
 		case "+":
-			result = Number(result) + Number(buffer);
+			result = number1 + number2;
 			break;
 		case "-":
-			result = Number(buffer) - Number(result);
+			result = number2 - number1;
 			break;
 		case "×":
-			result = Number(result) * Number(buffer);
+			result = number1 * number2;
 			break;
 		case "÷":
-			result = Number(buffer) / Number(result);
+			result = number2 / number1;
 			break;
 		case "*":
-			result = Number(result) * Number(buffer);
+			result = number1 * number2;
 			break;
 		case "/":
-			result = Number(buffer) / Number(result);
+			result = number2 / number1;
 			break;
 		default:
 			return;
 	}
+	displayHistory(number2, number1, operation);
 	operation = "";
 	buffer = 0;
 }
