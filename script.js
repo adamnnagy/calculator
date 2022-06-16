@@ -10,6 +10,7 @@ calculator.addEventListener("click", function (event) {
 	} else {
 		determineOperation(event.target.innerText);
 	}
+    displayResult();
 });
 
 document.body.addEventListener("keydown", function (event) {
@@ -20,6 +21,7 @@ document.body.addEventListener("keydown", function (event) {
 	} else {
 		determineOperation(event.key);
 	}
+    displayResult();
 });
 
 function handleNumbers(num) {
@@ -30,7 +32,7 @@ function handleNumbers(num) {
 		result = result.toString();
 		num = num.toString();
 		result += num;
-		displayResult();
+		
 	}
 }
 
@@ -42,13 +44,13 @@ function handleFloatingPoint() {
 	} else {
 		result += ".";
 	}
-	displayResult();
 	return;
 }
 
 function displayResult() {
-	const resultContainer = document.querySelector(".result");
-	if (result != 0) {
+    const resultContainer = document.querySelector(".result");
+
+    if (result != 0) {
 		resultContainer.textContent = result;
 	} else if (result === "0.") {
 		resultContainer.textContent = result;
@@ -97,7 +99,6 @@ function determineOperation(operator) {
 
 function clearDisplay() {
 	result = 0;
-	displayResult();
 }
 
 function backSpace() {
@@ -111,14 +112,12 @@ function backSpace() {
 	if (result === "-") {
 		result = 0;
 	}
-	displayResult();
 }
 
 function changeInput() {
 	if (buffer == 0) {
 		buffer = result;
 		result = 0;
-		displayResult();
 	}
 }
 
@@ -147,5 +146,4 @@ function equal() {
 	}
 	operation = "";
 	buffer = 0;
-	displayResult();
 }
