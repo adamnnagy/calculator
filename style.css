@@ -2,19 +2,24 @@ body {
 	background-color: papayawhip;
 	color: white;
 	font-family: monospace;
+	color: black;
 	font-size: 20px;
 }
 
 h1 {
-	display: flex;
-	justify-content: center;
 	text-transform: uppercase;
-	color: black;
 }
 
 p {
 	margin-right: 1rem;
 }
+
+.title-row {
+	display: flex;
+    flex-direction: column;
+	align-items: center;
+}
+
 button {
 	border: none;
 	font: inherit;
@@ -24,11 +29,11 @@ button {
 }
 
 .history {
-    font-size: small;
-    height: 1rem;
+	font-size: small;
+	height: 1rem;
 }
 .result {
-    height: 1rem;
+	height: 1rem;
 }
 
 .calculator-container {
@@ -45,8 +50,9 @@ button {
 
 /* screen */
 .row:first-child {
-    flex-direction: column;
-    /* justify-content: ; */
+	flex-direction: column;
+    color: white;
+	/* justify-content: ; */
 	align-items: flex-end;
 	/* height: 1rem; */
 }
