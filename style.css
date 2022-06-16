@@ -1,81 +1,83 @@
 body {
-    background-color: papayawhip;
-    color: white;
-    font-family: monospace;
-    font-size: 20px;
+	background-color: papayawhip;
+	color: white;
+	font-family: monospace;
+	font-size: 20px;
 }
 
 h1 {
-   display: flex;
-   justify-content: center;
-   text-transform: uppercase;
-   color: black;
+	display: flex;
+	justify-content: center;
+	text-transform: uppercase;
+	color: black;
 }
 
 p {
-    margin-right: 1em;
+	margin-right: 1em;
 }
 button {
-    border: none;
-    font: inherit;
-    width: 24.65%;
-    height: 5.5rem;
-    margin-bottom: 0.5%;
+	border: none;
+	font: inherit;
+	width: 24.65%;
+	height: 5.5rem;
+	margin-bottom: 0.5%;
 }
 
 .result {
-
 }
 
 .calculator-container {
-    background-color: black;
-    width: 400px;
-    margin: auto;
+	background-color: black;
+	width: 400px;
+	margin: auto;
 }
 
 .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 /* screen */
 .row:first-child {
-    justify-content: flex-end;
-    height: 5rem;
-    
+	justify-content: flex-end;
+	height: 5rem;
 }
 
 .calc-button:last-child {
-    background-color: rgb(199, 135, 71);
-    color: whitesmoke;
+	background-color: rgb(199, 135, 71);
+	color: whitesmoke;
 }
 
 .calc-button {
-    background-color: slategrey;
-    color: black;
+	background-color: slategrey;
+	color: black;
 }
 
 .calc-button:last-child:hover {
-    background-color: rgb(255, 174, 94);
+	background-color: rgb(255, 174, 94);
 }
 
 .calc-button:hover {
-    background-color:rgb(160, 180, 201);
+	background-color: rgb(160, 180, 201);
+}
+.calc-button:active {
+	transform: translateY(3px);
 }
 
 .calc-button:last-child:active {
-    background-color: rgb(100, 68, 36);
+	background-color: rgb(100, 68, 36);
 }
 
 .calc-button:active {
-    background-color:rgb(83, 83, 83);
+	background-color: rgb(83, 83, 83);
 }
 
-.clear, .zero  {
-    width: 49.866%;
+.clear,
+.zero {
+	width: 49.866%;
 }
 
 .dot {
-    width: 24.8333%;
+	width: 24.8333%;
 }

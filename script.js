@@ -14,6 +14,7 @@ calculator.addEventListener("click", function (event) {
 
 document.body.addEventListener("keydown", function (event) {
 	console.log(event.key);
+    event.preventDefault();
 	if (Number(event.key)) {
 		handleNumbers(event.key);
 	} else {
