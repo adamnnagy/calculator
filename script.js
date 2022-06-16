@@ -30,12 +30,10 @@ function handleFloatingPoint() {
 	if (!result) {
 		result = "0.";
 		displayResult();
-
 		return;
 	}
 	result += ".";
 	displayResult();
-
 	return;
 }
 
